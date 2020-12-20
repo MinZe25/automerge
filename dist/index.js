@@ -115,10 +115,10 @@ class AutomergeAction {
             //   core.info(`Required status checks for pull request ${number} are not successful.`)
             //   return false
             // }
-            if (!(yield this.isPullRequestApproved(pullRequest))) {
-                core.info(`Pull request ${number} is not approved.`);
-                return false;
-            }
+            // if (!(await this.isPullRequestApproved(pullRequest))) {
+            //   core.info(`Pull request ${number} is not approved.`)
+            //   return false
+            // }
             const labels = pullRequest.labels.map(({ name }) => name).filter(ts_is_present_1.isPresent);
             const doNotMergeLabels = labels.filter(label => this.input.isDoNotMergeLabel(label));
             if (doNotMergeLabels.length > 0) {
